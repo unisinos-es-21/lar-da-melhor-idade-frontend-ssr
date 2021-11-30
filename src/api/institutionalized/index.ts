@@ -1,9 +1,22 @@
 import { client } from '@base/api/client';
 
 import {
+  InstitutionalizedRequest,
+  InstitutionalizedResponse,
   InstitutionalizedListRequest,
   InstitutionalizedListResponse,
 } from '@base/api/interface/institutionalized';
+
+export function record(institutionalizedRequest: InstitutionalizedRequest) {
+  return client.post<InstitutionalizedRequest>(
+    'institutionalized',
+    institutionalizedRequest
+  );
+}
+
+export function getRecord(id: string) {
+  return client.get<InstitutionalizedResponse>(`institutionalized/${id}`);
+}
 
 export function getList(
   param: InstitutionalizedListRequest = { page: 0, name: '' }

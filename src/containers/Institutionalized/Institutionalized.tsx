@@ -121,7 +121,7 @@ export function Institutionalized() {
             type="button"
             color={Color.BLACK}
             icon="plus"
-            onClick={async () => await push('/institutionalized/register')}
+            onClick={async () => await push('/institutionalized/record')}
           >
             Cadastrar
           </Button>
