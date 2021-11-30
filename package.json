@@ -1,10 +1,11 @@
 {
+  "name": "lar-da-melhor-idade-frontend-ssr",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@lar_melhor_idade/design-system": "^1.4.6",
