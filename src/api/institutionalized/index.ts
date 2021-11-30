@@ -1,32 +1,19 @@
 import { client } from '@base/api/client';
 
-import {
-  InstitutionalizedRequest,
-  InstitutionalizedResponse,
-  InstitutionalizedListRequest,
-  InstitutionalizedListResponse,
-} from '@base/api/interface/institutionalized';
+import { InstitutionalizedListRequest } from '@base/api/interface/institutionalized';
+import { MedicalRecordListResponse } from '@base/api/interface/institutionalized';
 
-export function record(institutionalizedRequest: InstitutionalizedRequest) {
-  return client.post<InstitutionalizedRequest>(
-    'institutionalized',
-    institutionalizedRequest
-  );
-}
-
-export function getRecord(id: string) {
-  return client.get<InstitutionalizedResponse>(`institutionalized/${id}`);
-}
-
-export function getList(
-  param: InstitutionalizedListRequest = { page: 0, name: '' }
+export function getMedicalRecordList(
+  param: InstitutionalizedListRequest = {
+    page: 0,
+    cpf: '0',
+  }
 ) {
   const params = new URLSearchParams();
 
   params.append('page', String(param.page ?? 0));
-  params.append('name', param.name ?? '');
 
-  const url = `institutionalized?${params.toString()}`;
+  const url = `medicalRecord/findByCpf/${param.cpf}?${params.toString()}`;
 
-  return client.get<InstitutionalizedListResponse>(url);
+  return client.get<MedicalRecordListResponse>(url);
 }

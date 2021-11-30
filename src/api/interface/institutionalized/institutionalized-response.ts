@@ -1,24 +1,31 @@
-import { InstitutionalizedRequest } from './institutionalized-request';
-
-export interface InstitutionalizedResponse extends InstitutionalizedRequest {
+export interface InstitutionalizedResponse {
   id: number;
   createdBy: string;
   createdDate: string;
   lastModifiedBy: string;
   lastModifiedDate: string;
-}
-
-export interface InstitutionalizedListContentResponse {
-  id: number;
   name: string;
   cpf: string;
   phone: string;
   birthDay: string;
-  gender: string;
+  gender: number;
 }
 
-export interface InstitutionalizedListResponse {
-  content: InstitutionalizedListContentResponse[];
+export interface MedicalRecordResponse {
+  id: number;
+  institutionalized?: InstitutionalizedResponse;
+  medicalAppointmentDate: string;
+  reason: number;
+  anamnesis: string;
+  diagnosticHypotheses: string;
+  definitiveDiagnosis: string;
+  infectiousDiseaseCarrier: boolean;
+  infectiousDiseaseDescription: string;
+  responsible: string;
+  cid?: string;
+}
+export interface MedicalRecordListResponse {
+  content: MedicalRecordResponse[];
   first: boolean;
   last: boolean;
   number: number;

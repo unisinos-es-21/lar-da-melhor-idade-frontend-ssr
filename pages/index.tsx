@@ -1,3 +1,3 @@
-import { Login } from '@base/containers/Login';
+import { Institutionalized } from '@base/containers/Institutionalized';
 
-export default Login;
+export default Institutionalized;
