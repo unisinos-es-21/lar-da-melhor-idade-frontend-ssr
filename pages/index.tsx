@@ -1,3 +1,3 @@
-export default function Home() {
-  return <div>Hello world</div>;
-}
+import { Login } from '@base/containers/Login';
+
+export default Login;
